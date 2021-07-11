@@ -68,7 +68,7 @@ class QrController extends Controller
                 'City' => $request->city, 
                 'Campaign' => $request->campaign, 
                 //формирование ссылки для механизма промежуточного шлюза
-                'Source' => 'http://qr-test/qr-codes/gateway?id=' . $new_row->id . '&&url=' . $request->source, 
+                'Source' => 'http://qr/qr-codes/gateway?id=' . $new_row->id . '&&url=' . $request->source, 
                 'Product' => $request->product, 
             ]);
             $new_row->save();
@@ -125,7 +125,7 @@ class QrController extends Controller
                 'City' => $request->city, 
                 'Campaign' => $request->campaign, 
                 //формирование ссылки для механизма промежуточного шлюза
-                'Source' => 'http://qr-test/qr-codes/gateway?id=' . $qr_row->id . '&&url=' . $request->source, 
+                'Source' => 'http://qr/qr-codes/gateway?id=' . $qr_row->id . '&&url=' . $request->source, 
                 'Product' => $request->product, 
             ]);
             $qr_row->save();
