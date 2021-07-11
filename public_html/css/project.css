@@ -1,0 +1,59 @@
+body{
+    margin-top: 10px;
+}
+.block-header{
+    margin: 15px;
+}
+
+.qr-table{
+    font-size: 90%;
+    text-align: center;
+}
+
+.qr-table th, .centr-td{
+   
+}
+
+.options-td{
+    width: 150px;
+    text-align: left;
+}
+
+.name-td{
+    text-align: left;
+}
+
+.count-td{
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.margin-top-30{
+     margin-top: 30px;
+     margin-bottom: 30px;
+}
+
+.additional-link a {
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    background-color: #17c2d7;
+    border-color: #17c2d7;
+    padding: .25rem .5rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    margin-right: 30px;
+}
+
+.qr-link{
+    margin-top: 20px;
+}
+
+.qr-link a{
+    font-size: 120%;
+    color: darkblue;
+}
+
+.qr-gateway{
+    font-size: 150%;
+}
