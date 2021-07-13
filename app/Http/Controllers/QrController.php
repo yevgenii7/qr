@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Qr;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use FPDF;
+use App\Libraries\Fpdf\Fpdf;
 
 class QrController extends Controller
 {
@@ -68,7 +68,7 @@ class QrController extends Controller
                 'City' => $request->city, 
                 'Campaign' => $request->campaign, 
                 //формирование ссылки для механизма промежуточного шлюза
-                'Source' => 'http://qr/qr-codes/gateway?id=' . $new_row->id . '&&url=' . $request->source, 
+                'Source' => url('/') . '/qr-codes/gateway?id=' . $new_row->id . '&&url=' . $request->source, 
                 'Product' => $request->product, 
             ]);
             $new_row->save();
@@ -125,7 +125,7 @@ class QrController extends Controller
                 'City' => $request->city, 
                 'Campaign' => $request->campaign, 
                 //формирование ссылки для механизма промежуточного шлюза
-                'Source' => 'http://qr/qr-codes/gateway?id=' . $qr_row->id . '&&url=' . $request->source, 
+                'Source' => url('/') . '/qr-codes/gateway?id=' . $qr_row->id . '&&url=' . $request->source, 
                 'Product' => $request->product, 
             ]);
             $qr_row->save();
@@ -145,9 +145,6 @@ class QrController extends Controller
     
     public function getQr(int $qr_row_id)
     {
-        //подключение библиотеки FPDF
-        require_once(__DIR__ . "/../../Libraries/Fpdf/fpdf.php");
-        
         //определение переменной,содержащей информацию для QR-кода
         $qr_content = '';
         
@@ -183,7 +180,7 @@ class QrController extends Controller
                 ->generate($qr_content,$png_file_path);
          
         //формирование .pdf с QR-кодом при помощи класса FPDF
-        $pdf = new FPDF( 'P', 'mm', 'A4' );
+        $pdf = new Fpdf( 'P', 'mm', 'A4' );
         $pdf->AddPage();
         $pdf->Image($png_file_path, 20, 20, 100, 100 ,'');
         $pdf->Output('F', $pdf_file_path );

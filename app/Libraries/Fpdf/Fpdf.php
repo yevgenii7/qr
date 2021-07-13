@@ -1,4 +1,6 @@
 <?php
+
+namespace App\Libraries\Fpdf;
 /*******************************************************************************
 * FPDF                                                                         *
 *                                                                              *
@@ -9,7 +11,7 @@
 
 define('FPDF_VERSION','1.83');
 
-class FPDF
+class Fpdf
 {
 protected $page;               // current page number
 protected $n;                  // current object number
@@ -1907,4 +1909,4 @@ protected function _enddoc()
 	$this->state = 3;
 }
 }
-?>
+
